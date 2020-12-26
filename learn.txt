@@ -1,0 +1,84 @@
+install go lang 
+add extentsions for vscode 
+install analyze tools 
+gopkgs
+  go-outline
+  gotests
+  gomodifytags
+  impl
+  goplay
+  dlv
+  golint
+  gopls
+
+---
+go env 
+
+main.go
+how run code?
+go in folder > go run main.go
+
+go fmt > format files 
+go build > compile 
+go run > compile and execute
+go install > compile and install a package
+go get > dl source code of package (someone elese)
+go test > run stest
+
+--- 
+
+what is 'package main'?
+
+package == project == workspace
+
+package (many go file in it  )
+each file in workspace need have package name 
+that belong to .
+
+there are 2 type of packages
+executable : generate a file we can run
+(word main is important)
+
+reusable : code use as helper, good place to put 
+reuse logic
+(package calculator)
+
+---
+
+what is import fmt ?
+allow access to other code 
+
+math, encoding , debug , fmt , crypto , io
+
+golang.org/pkg
+
+also can import other reuse packages
+
+---
+
+steps in go file :
+package declaration
+list of imports 
+declaration of functions
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
