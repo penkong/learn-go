@@ -63,14 +63,105 @@ declaration of functions
 
 ---
 
+CARDS PROJECT :
+get file , read file , write to file , and functions
+
+create new var with string ,
+var card string = 'Ace of space'
+
+string
+bool
+int 
+float64
+
+short form , 
+card := "Ace of spades"
+
+after	card = "Five of Diamonds"
+
+--- 
+
+return type of functions
+
+func sth() string {}
+
+---
+
+array : fixed length
+
+slice : an shrinkable array 
+cards := []string{newCard(), newCard()}
+
+only with one data type 
+
+how add to slice?
+with append 
+it return new slice and attach it to var ,
+append(<name of oldVar>, "info")
+
+how iterate over slice ?
+for i, card := range cards {
+  fmt.Println(i, card)
+}
+
+---
+
+OOP approach vs Go approach
+
+type : tell go what we are going to do ,
+receiver function : it is like method , 
+
+define a file type how our functionality going to
+work and treat .
+
+
+and use that type in main file 
+and run project like 
+
+go run main.go deck.go
+
+now func receiver 
+func (d deck) print() {
+	for i,card := range d {
+		fmt.Println(i,card)
+	}
+}
+
+now the any var defined with type of deck have 
+access to print functions.
+
+d is actual copy of the deck we are working with
+available in the function a var called .
+
+slice cards == d == like this , self 
+
+type is like class declaration,
+and funcs are methods .
+
+
+add new functionality to understand go syntax
+
+
+can pick slice from slice 
+deck[startIndex:upToNotIncludingIndex]
+deck[:2] // slice of 0,1
+deck[2:] // slice of 6
 
 
 
+receiver methods are like static methods 
 
 
+noraml function get info
 
 
+go has support to return multiple value from 
+func
+func deal(d deck, handSize int) (deck, deck) {
+  	return d[:handSize], d[handSize:]
+}
 
+hand, remainingCards := deal(cards, 5)
 
 
 
