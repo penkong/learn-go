@@ -164,6 +164,54 @@ func deal(d deck, handSize int) (deck, deck) {
 hand, remainingCards := deal(cards, 5)
 
 
+---
+
+byte slice : []byte
+
+save to file ,
+package ioutil
+
+
+type conversion in go 
+type we want    value we have
+[]byte           ("hi there")
+
+deck => []string => join => []byte
+package Stings
+
+
+
+null is nil
+
+len == length 
+
+Math.random = rand.Intn
+go use seed for generator of random 
+
+---
+
+test with go 
+
+go test go
+
+func TestNewDeck(t *testing.T) {}
+t is test handler
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
