@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+// what a deck is and how it behave like class
 // create a new type
 type deck []string
 

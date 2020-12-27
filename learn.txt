@@ -199,7 +199,10 @@ t is test handler
 
 ---
 
-
+go2 
+make workspace 
+with 3 dir`
+bin pkg src
 
 
 
