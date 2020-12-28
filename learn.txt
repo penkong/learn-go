@@ -301,6 +301,31 @@ for exe : put in gopath/bin  , compile program
 
 for package : put in gopath/pkg , compile package , make it archive file .
 
+--- 
+
+go modules :
+
+go mod init : init new module 
+go build , test 
+go list -m all : print current module dependencies
+go get <package name> : bring latest one  
+go mod tidy : remove unused .
+
+
+
+go mod init example/user/repo
+make module out of your file 
+
+
+if we import a dependency it auto add 
+to mod as dependency and go.sum file will 
+add also show dependency in dependency
+
+
+go list -m -versions <package name>
+go get <pacakge with @number>
+go test 
+
 ------
 
 
