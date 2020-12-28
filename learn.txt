@@ -326,6 +326,36 @@ go list -m -versions <package name>
 go get <pacakge with @number>
 go test 
 
+
+-----
+
+controll flow :
+
+1 ) sequence 
+2 ) loop 
+3 ) conditional
+
+read control flow wiki
+
+
+
+every value is type of interface {}
+
+
+identifiers name program entities .
+
+
+var keyword work outside of func body also .
+ 
+type and value 
+
+// show type of var 
+fmt.Printf("%T\n", var)
+
+
+conversion no casting 
+a = int(b)
+
 ------
 
 
