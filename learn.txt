@@ -281,13 +281,25 @@ reference type in go : slices , maps , channels , pointers ,  fucntions
 (dont worry about pointers with this)
 
 ---
-
+================================================================================
 
 go2 
 make workspace 
 with 3 dir`
 bin pkg src
 
+
+go get -d -x -v "address"
+
+
+go fmt = format current dir
+go fmt ./... = format everything
+
+
+go install 
+for exe : put in gopath/bin  , compile program
+
+for package : put in gopath/pkg , compile package , make it archive file .
 
 ------
 
