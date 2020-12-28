@@ -199,13 +199,97 @@ t is test handler
 
 ---
 
+struct 
+data structure . collection of props thatr are related together.
+card struct => suit , value 
+struct like plain object in js .
+
+
+type person struct {
+  firstName string
+  lastName string
+  contact contactInfo<cutom type>
+}
+alex := person{"Alex", "Anderson"}
+
+in go when define var and dont assign anything to it 
+go assign zero value by itself
+
+string, int, float, bool
+
+fmt.Printf(identifier, actual value)
+"%+v" => % field names , v their values
+
+also you can add struct as item for receiver func
+
+but update value in struct normally does not work 
+
+pointers in go 
+
+go is pass by value
+
+struct with pointers
+
+jimPointer := &jim
+(pointerToPerson *person)
+*person is pointer
+
+&variable : & is operator , give me the memory address of the value this variable
+  is pointing to (give memory address)
+
+&var = memory address
+
+
+// read like this : a pointer that point to sth
+*pointer : * give me the value this memory address is pointing to.
+// take this memory address and give me the value
+
+*point = value in that memory address.
+
+(pointerToPerson *person)
+
+*person means : type description , means we are working with pointer of type person
+
+*pointerToPerson : an operator , means we want manipulate the value the pointer is refering to.
+
+
+turn address into value with *address
+turn value into address with &value
+
+
+shortcut : go infer for us &var , we can only do *type and go take memory address and 
+make it ready for pointer varpoiner = &var
+
+//
+
+gotchas :
+
+struct vs slice 
+struct change need pointer 
+but slice not 
+it is like object and normal val in js .
+
+slice : go make 2 data structure , slice , and array
+new slice container 3 part , pointer to head of array , capacity, length 
+
+slice --> go --> new slice (pointer , capacity, length) --> array by go 
+
+value tpyes in go : int , float, string , bool , struct 
+(for change need pointers in a function)
+
+reference type in go : slices , maps , channels , pointers ,  fucntions
+(dont worry about pointers with this)
+
+---
+
+
 go2 
 make workspace 
 with 3 dir`
 bin pkg src
 
 
-
+------
 
 
 
