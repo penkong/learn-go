@@ -495,6 +495,241 @@ if looping over map slice or ... use range
 
 
 
+slice , slice :
+x := []int{3,4,5,6,7,8}
+x[:3] x[3:]
+
+
+
+append to slice :
+
+append(x, 4,5,6)
+
+
+append slice to slice :
+
+variadic parameters : y...
+append(x , y...)
+
+
+delete from slice :
+append(x[:2], x[4:]...)
+
+
+
+slice make :
+
+built in make 
+make() specify size of underlying array of slice
+
+make([]int , 10 length, 100 capacity)
+len(x)
+cap(x)
+use append to add to this slice built with make()
+when size come over it make new added array with length of cap(x)
+cap(x) ==> 2* cap(x)
+
+
+multi dimensial slice :
+
+jb := []string{}
+jd := []string{}
+
+xp := [][]string{jb, jd}
+
+---------------------
+
+
+maps :
+key value store
+
+m := map[string]int{
+  "james" : 32,
+  "miss" : 27, 
+}
+
+check that exists
+if v does not exist bring back 0 
+we need to way to determine if it exist 
+v, ok := m["sonny"]
+ 
+// famous
+if v, ok := m["sonny"]; ok {
+
+}
+
+
+
+add to map :
+
+
+m["tod"] = 343
+
+for k, v := range x {
+  fmt.Println(k,v)
+}
+
+
+
+map delete :
+
+delete(mapName , "key")
+
+
+
+another map :
+m := map[string][]string{
+  "mk" : []string{ "", ""}
+}
+
+-----------------------------
+
+
+struct :
+a data structure that let us compose values of different types
+
+type person struct {
+  first string
+  last string
+  age int
+}
+
+p1 := person {
+  first: 'fsdf"
+  last : 'fsdfs'
+}
+created value of type person
+
+annonymous struct :
+
+struct{firstName string}{ firstName: "mfsdf"}
+
+
+------------------
+
+functions :
+
+
+reciever : attached to type 
+
+ 
+
+
+variadic parameters : 
+
+// many values become slice 
+func foo (x ...int) {}
+
+
+unferling a slice :
+m = []int{}
+m... => pull values of slice and put it in new location we use 
+
+---
+
+defer :
+defer execution of function until define by us
+
+defer foo()
+bar()
+
+----
+
+Methods :
+
+type person struct {}
+
+func (p person) speak() {}
+
+
+attach functio to that type.
+
+
+-----------------------------------------
+
+interfaces & polymorphism :
+
+interfaces allow us to define behavior .
+also do polymorphism with that 
+
+
+type human interface {
+  speak()
+}
+
+a value can be more than one type , type human , type person
+
+any type that have speak() is type of human
+
+assertion :
+if h is type of person
+h.(person).first
+h.(agent).letToKill
+
+------------------------------
+
+annonymous func :
+
+func main () {
+  func(x int) {
+
+  }(43)
+}
+
+
+---------------------------
+
+func expresson :
+
+f := func() {
+
+}
+
+f()
+
+-----------------------------
+
+return func from func :
+
+funct foo() func() int {
+  return func() int {
+    return 451
+  }
+}
+
+------------------------------
+
+callback : 
+
+passing func as argument
+
+
+func even(f func(xi ...int) int , vi ...int) int {
+  do sth with vi
+  return f(vi)
+}
+
+-----------------------------
+
+closure :
+when closing var in its scope 
+
+-----------------------------
+
+recursion :
+
+not good idea .
+
+a function call itself .
+
+
+
+
+
+
+
+
+
 
 
 
