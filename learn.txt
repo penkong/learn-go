@@ -324,7 +324,7 @@ add also show dependency in dependency
 
 go list -m -versions <package name>
 go get <pacakge with @number>
-go test 
+go test  
 
 
 -----
@@ -357,6 +357,141 @@ conversion no casting
 a = int(b)
 
 ------
+
+...interface {} == "variadic parameter"
+give the func as many as item from one type as you want 
+
+
+every value in go is type of empty interface = interface{}
+
+---------------------------------
+
+bool type : true false 
+
+
+how computer works??
+
+
+int without decimal 
+float with decimal = real numbers
+
+
+byte in go is alias for unit8
+character utf ascii == rune in go is alias for int32
+
+check 
+fmt.Println(runtime.GOOS)
+fmt.Println(runtime.GOARCH)
+
+
+nacl os 
+
+----------
+
+
+string :
+
+a string value is sequence of bytes = slice of bytes
+
+[]byte(stringYour)
+
+[]byte = []uint8
+
+// show utf code  
+fmt.Println("%#U" , string[i])
+
+-------------------
+
+numerical :
+
+abcdef
+101112131415
+
+binary 2^0 
+"%b\n", n
+hexa  16^0
+"%x\n"
+base64 64^0
+
+---------------------
+const sl = 'sl'
+const ( a = 43 b = 'sfsd' c true)
+
+
+-------------------------------
+
+IOTA :
+
+pre declare identifier 
+automatically increment data 
+const a = IOTA
+const b = IOTA
+const c = IOTA
+const d = IOTA
+1,2,3,4
+
+
+------------------------------------
+
+Bit shifting : 
+
+"%d" : decimal 
+"%b" : binary 
+x := 4 
+y := x << 1 ===> y = 8
+
+
+kb = 1 << 10 (add 10 zero to 1)
+kb =  1 << (iota * 10)
+
+
+
+raw string literals ``
+
+-------------------------------------------------
+
+Control flow :
+
+switch "value"{
+  // this will exec
+  case "value" :
+
+  // multi case value
+  case "value1" , "value3", "value4" :
+  case :
+    fmt.fdsfsd()
+    // will exec all other valid case below
+    fallthrough
+
+  case : 
+  default :
+    sfdsfew()
+}
+
+-------------------------------------------
+
+group data :
+
+array : 
+var x [5]int 
+
+
+slices :
+slice is agregate
+
+
+agregate : value of same type
+struct : value of different types
+
+
+composite type - literals:
+slice
+x := type {values}
+x := []int{3,4,5,6,7,8}
+
+
+
+if looping over map slice or ... use range
 
 
 
