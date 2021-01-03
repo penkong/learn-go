@@ -336,12 +336,15 @@ source of data --> Reader i --> []byte --> Writer i
 
 -----------------------
 
-channels and gorouting :
+channels and goroutines :
+
+handling Concurrency
+
+add go 
 
 
-
-
-
+go scheduler : runs one routine until it finishes or makes
+a blocking call .
 
 
 
