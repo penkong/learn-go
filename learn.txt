@@ -281,6 +281,71 @@ reference type in go : slices , maps , channels , pointers ,  fucntions
 (dont worry about pointers with this)
 
 ---
+
+Map: 
+all keys must be same type 
+all value must be same type 
+
+3 way to declare with make , with normal way , with init 
+map[string]string
+
+
+structs is better than map
+we can not iterate over struct
+
+when you know keys use struct
+when dont know about things comming use map
+
+---
+
+interfaces :
+
+if anything satisfy interface things 
+it become automatically type of interface
+
+interfaces are blueprint for struct
+rules 
+
+type sth interface {
+  sths(list of argument) (list of return types)
+}
+
+
+
+concrete type : can produce value out of it like
+map , string ,int , struct , cutstom struct
+
+
+interface type 
+
+
+------------------
+
+HTTP :
+
+normal http get dont bring back body of req
+
+an interface can embed another interface
+
+Body has type of interface 
+that means Body can be anything as long as satisfy inteface
+
+
+source of data --> Reader i --> []byte --> Writer i
+
+
+-----------------------
+
+channels and gorouting :
+
+
+
+
+
+
+
+
+
 ================================================================================
 
 go2 
@@ -723,18 +788,192 @@ not good idea .
 a function call itself .
 
 
+-------------------------------------
+
+
+Pointers :
+
+& : show address in memory 
+pointer in memory 
+
+when check somthing T with & it show 
+us type of pointer *int or *string
+
+what is stored on that & > pointer with *int value 
 
 
 
+*somevar : de reference pointer and show value stored in that
+address.
+
+b = *&b
+
+also it let u assign new value to that 
+a = 'old value'
+b := &a
+*b = 'new value'
+
+
+use to pass address pointer rather than data 
+or if you want change something in locations.
+
+
+when value want to mutate use pointer.
+
+
+---------------
+
+method set :
+
+those methods attached to a type named set 
+
+what is set of methods attached to type => method set 
+
+non pointer reciever
+pointer reciever
 
 
 
+-------------------
+
+
+Application :
+
+marshaling :
+
+json.Marshall
+struct -> json 
+
+de marshaling :
+
+string is sequence of bytes
+
+jsonBlob = []byte
+json  -> struct 
+
+json.Unmarshal(blob , &var = must be pointer)
+json ->  conversion to []byte -> Unmarshal
 
 
 
+------------
+
+Writer interface :
+
+encode , decode (like marshal)
+Reader , Writer
+
+writer : write it to out source 
+reader : incoming info
+
+type writer is interface ,
+with 
+Write(p []byte) (n int , err error)
+
+-----------------------
+
+Sort :
+
+slice -> sort
+
+
+sort.Ints(slice of int)
+sort.Strings()
+
+slice is type length capacity
+ 
+
+sort cutstom :
+ 
+
+Interface inteface :
+3 method on it 
+len swap less
+
+
+-----------------------
+
+bycrypt : 
+
+from crypto 
+
+
+------------------------
+
+
+Concurrency :
+
+
+Concurrency vs Parallelism 
+
+Parallelism is code run in one time 
+
+Concurrency is a design pattern
+
+runtime :
+
+NumCPU()
+NumGorouteins()
+A Goroutine is a function or method which executes independently and 
+simultaneously in connection with any other Goroutines present in your program.
+
+make new goroutine with go f()
+it add one to goroutine 
+but we need to tell to main() wait because when go pass go f() it exec whole main 
+and program exit but we need wait go f() resolve
+
+WaitGroup : package sync
+// pacakge scope 
+var wg sync.WaitGroup
+wg. add dont wait 3 methods 
+add wg.add()
+add wg.done() to f()
+
+and in end of main write wg.wait()
+
+
+check effective go Concurrency
+
+
+--------------------------
+
+Race condition :
+
+normally when use go f() it happen 
+we use runtime.Goshcedule() to let it continue
+
+go run -race main.go
+
+
+to fix it we use mutex
+
+locking the access to variable 
+
+var mu sync.Mutex
+
+and in logic we put 
+
+mu.lock()
+logic here
+nobody can access counter var
+mu.Unlock()
+
+-------------------------------
+
+Atomic 
+
+from pacakge sync
+
+addInt^4
+
+when in go you see int64 --> almost atomic
 
 
 
+----------------------------------------
+
+Channels :
+better way to sync your code .
 
 
 
