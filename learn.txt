@@ -346,7 +346,63 @@ add go
 go scheduler : runs one routine until it finishes or makes
 a blocking call .
 
+one cpu: if it blocking pause goroutine and exec next goroutine
 
+more cpu : scheduler runs one thread on each logical core
+
+Concurrency : we can have multi threads exec code . if one blocking
+another one is picked up
+
+Parallelism : need more cpu than one , multi thread exec at 
+same time 
+
+
+Main routine is boss other goroutine are children
+
+Channels : use to communicate between different Goroutines
+we use channel to make sure main routine is aware of child
+goroutine
+
+
+channel must be typed 
+
+c := make(chan string)
+make create value out of given type 
+
+channel is sending data mechanism it has listener and issuer
+
+send data to channel : channel <- 5
+reciever : reciever <- channel
+fmt.Println(<- channel)
+
+the line up is blocking code means we sit and wait to 
+sth come into channel
+
+receive message from channel is blocking 
+
+
+now we want to make sth like status checker what??
+means constantly request for example for link after it 
+finish go request(link) -> finished ? -> go do it again 
+
+for repeat :
+for {
+  go requester(<-c, c)
+}
+
+alternative syntax :
+
+for l := range c {
+  go requester(l, c)
+}
+
+
+Sleeping a routine :
+use function literals = annonymous function in js
+lambda in c# 
+
+each routine must have access to his own list of vars 
+in memory 
 
 
 ================================================================================
