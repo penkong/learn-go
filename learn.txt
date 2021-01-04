@@ -1034,6 +1034,39 @@ when in go you see int64 --> almost atomic
 Channels :
 better way to sync your code .
 
+c := make(chan int)
+
+c <- 42 (nothing pull it off)
+fmt.Println(<-c)
+
+Channels block .
+if send and receive does not happen at same time.
+in normal channel must be like this.
+
+Successful buffer :
+it can be buffer channel also 
+it means certain value can sit in channel and does not 
+mather it pull it off or not
+
+c := make(chan int, 1 = allow one value to sit there)
+
+
+
+unsuccessful buffer :
+when we make it with 2 buffer but add 3 item to channel 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
