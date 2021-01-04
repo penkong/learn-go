@@ -1,0 +1,137 @@
+GO WEB DEV :
+--------------------
+
+templates :
+
+personalized web page for users.
+
+package template
+ 
+text template 
+html template : text template + additional + safety
+
+
+hint : os.Args == show command line args to us
+
+
+it is best to have html somewhere else and bring and use them .
+
+by text template package we bring those files
+
+use gohtml for html file
+
+pointer to template = it is container in to wich all your template get parsed and held
+
+steps : parser files , execute file 
+
+tpl := template.Parsefiles 
+
+after this if we want parser more we use tpl not anymore use template we use tpl.Parsefiles
+
+executeTemplte : allow us execute specific template.
+
+because we want use pattern or glob to parser we use ParseGlob rather than ParseFiles
+
+func init() {}
+run for first time when app run good place to load up data
+var tpl *template.Template  ===== package.type
+Must : take ParseGlob and error handling
+
+template.Must(template.ParseGlob('where tpl are'))
+
+----
+
+pass datat to template :
+
+{{ . }}
+dot : is current value of data at this point on execution 
+
+
+-----
+
+assign value to var in template :
+{{ $sth := .}}
+and now in template :
+{{$wisdom}}
+
+
+-----
+
+passing composite data structure :
+aggregate data structre.
+
+slice : 
+[]string{"","",""}
+
+slice in template :
+{{ range . }}
+<li>{{ . }}</li>
+{{ end }}
+
+
+silce with var in template :
+{{ range $index , $element := .}}
+<li>{{$index}}{{$element}}</li>
+{{end}}
+
+
+Map :
+map[string]string{"":"" ...}
+
+Map in template :
+{{ range . }}
+<li>{{ . }}</li>
+{{ end }}
+
+Map with var in template :
+{{ range $key , $value := .}}
+<li>{{$key}}{{$value}}</li>
+{{end}}
+
+struct :
+type sth struct {
+  Name  string
+  Shttt string
+}
+
+struct in template :
+<li>{{.Name}} {{.Shttt}}</li>
+
+struct with var in template :
+{{ $x := .Name}}
+{{ $y := .Shttt}}
+<li>{{$x}}{{$y}}</li>
+
+
+slice of structs :
+
+
+slice of structs in template:
+{{range := .}}
+<li>{{.Name}}{{.Shttt}}</li>
+{{end}}
+
+
+structs slice struct :
+in template :
+{{range .Wisdom}}
+<li>{{.Name}}{{.Shttt}}</li>
+{{end}}
+{{range .Transport}}
+<li>{{.Name}}{{.Shttt}}</li>
+{{end}}
+
+==================================================
+
+
+functions in template : not good idea 
+
+pre defined functions or custom functions
+
+create a FuncMap to register functions
+keys : are called in template
+values : logic func
+
+after those only must change init() {} on load up template
+
+tpl = template.Must(template.New("").Funcs(fm).ParseFiles("tpl.gohtml"))

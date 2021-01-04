@@ -1056,11 +1056,158 @@ unsuccessful buffer :
 when we make it with 2 buffer but add 3 item to channel 
 
 
+Directional Channels :
+
+last ones was bio Directional channels 
+also we can one way channel 
+
+// channels only send values on it
+// send
+c := make(chan <- int , 2)
+
+// channel only receive
+// recevie
+c := make(<- chan int , 2)
+
+ 
+-------
+
+using channels :
+
+// bio channel
+c := make(chan int)
+
+// in scope of this function it is only sender channel 
+func fooSend(c chan<- int) {}
+
+// in scope of this fucntion it is only receiver
+func barReceive(c chan int) {}
 
 
 
 
+Rangeing over channel :
 
+for i:= 0 ; i <100 ; i++ {
+		c <- i
+	}
+	close(c)
+
+
+for v := range c {
+		fmt.Println(v)
+	}
+
+after range loop with channel close it
+also range block until channel close 
+-------
+
+Select Pattern :
+
+use to pull value of from many channels
+
+
+select {
+		case v := <-e:
+			fmt.Println("eve", v)
+		case v := <-o:
+			fmt.Println("odd", v)
+    // just comma idiom 
+		case i, ok := <-q:
+			fmt.Println("quit", v)
+			return
+		}
+
+
+go func(){
+  c <- 434
+  close(c)
+}()
+v , ok := <-c
+434, true 
+v , ok := <-c 
+0 , false
+
+
+----------------------------
+
+
+fan in pattern :
+for Concurrency design pattern
+
+i have many works let me fan in as many as possible goroutine
+the all will be working on that as much as possible
+
+when they get back result fan out those to channel
+
+fan in : send(even, odd) receive(even,odd, fanin)
+
+do middleware stuff in fan in and channel ????
+
+chan1
+chan2  ===> fan in
+chan3
+
+---
+
+fan out pattern :
+
+take piece of work and need it done over and over 
+like video change format and ...
+encoding video 
+1000 vidoes 
+for each video need to encoded launch a goroutine
+take result and bring back.
+
+do somethin in chan1 
+with wait group
+fanOut range info from chan1 to chan2
+we take range value put it in logic(make 100 goroutine here think) 
+function (encoding like)
+and put produced info to chan2
+
+
+-------------------------------------
+
+Context :
+
+is tool u use with Concurrency design pattern
+to make sure that if you have process that launch some
+goroutine -> when you canecel process make sure all of other
+goroutine canceled.
+
+prevent goroutine leaking .
+
+to go blog .
+ 
+---------------------------------------------------
+
+
+Errors :
+
+log.Println(err)
+
+log.SetOutput(file)
+
+log.Fattalln(err) == Println() + os.Exit()
+
+log.panic()
+
+recover()
+
+panic()
+
+-----------------
+
+recover :
+
+only works with defer .
+ 
+
+
+add info to err :
+errors.New()
+fmt.Errorf()
 
 
 
