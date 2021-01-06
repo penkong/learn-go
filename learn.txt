@@ -1209,9 +1209,43 @@ add info to err :
 errors.New()
 fmt.Errorf()
 
+------------------------
+
+Documentation :
+
+godoc pacakge 
+extract and generate Documentation for us.
+
+go doc command
+
+go doc help 
+go help doc
+
+go doc -cmd cmd/doc
+
+go doc name of pacakge
+go doc package.method
 
 
 
+godoc :
+with this you can run local server and see all your Documentation
+godoc -http=:8080
+
+
+godoc -src fmt Printf == show source of code .
+
+to make your doc code accessible for other 
+copy paste address of github in go doc 
+
+
+provide  comments in your code it will become Documentation 
+
+
+make doc.go file to make Documentation description
+print.go
+scan.go
+format.go
 
 
 

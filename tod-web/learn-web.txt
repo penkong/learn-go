@@ -134,4 +134,190 @@ values : logic func
 
 after those only must change init() {} on load up template
 
+// because we dont parser we dont give name to New()
 tpl = template.Must(template.New("").Funcs(fm).ParseFiles("tpl.gohtml"))
+
+usage in template :
+{{ range .Wisdom }}
+{{ uc .Name }}
+{{ end }}
+
+----------
+
+pipeline in templates :
+
+format time ,
+
+
+time.Now
+
+t.Format()
+
+pipeline :
+in template
+{{ . | func1 | func2}}
+
+-----------
+
+Pre defined Global functions :
+
+index , and or not , equality and .... 
+
+{{ if . }}
+{{ end}}
+
+{{ if and .Name .Shttt}}
+
+{{ if gt .Score1 .Score2 }}
+
+
+-----------------------
+
+
+Nesting Template :
+
+comment in template :
+{{ /**/}}
+
+in one file :
+{{ define "TemplateName"  }}
+content 
+{{ end }}
+
+in gohtml :
+{{ template "TemplateName"}}
+
+pass data to template :
+{{ template "TemplateName" .}}
+
+------------------------
+
+composition in template :
+
+also you can pass methods in template when they are 
+reciever (static like methods)
+
+
+-------------------------
+
+
+Now 
+Html Template :
+
+
+---------------------------------------
+
+Server :
+
+mulitplexer : something in electronic help to make decision in routes 
+
+
+READ OSI MODEL 
+ 
+ietf.org
+http standards : rfc 7230 = request for common 
+
+
+tcp server ---> http server 
+
+
+use telnet to get info from tcp server .
+
+
+
+-----
+
+read :
+
+to read from connectio we use bufio scanner .
+
+
+read write 
+
+with deadline 
+
+
+say something to server and receive info from it 
+with Dial package
+
+we have some tcp app rot 13 server 
+and 
+in memory database 
+
+rot13 use for encryption 
+
+
+remember : each time use scanner 
+when we Scan each header part or info come line by line 
+
+line := scanner.Text() ---> make everything line by line 
+
+
+
+--------
+
+Http package :
+
+
+start with handler interface 
+
+ListenAndServe
+ListenAndServeTLS
+
+
+parser form data ,
+to get data from req and form : Form(url querystring + formdata), PostForm
+
+
+----
+
+routing :
+multiplexing 
+create mulitplexer to respond to request in multi way .
+
+
+http.ListenAndServe(":8080", nil)
+if nil == Defaultservermux
+mux = http.newservermux()
+or we can use third party mux server 
+
+
+Serve File : 
+io.Copy
+http.ServeContent
+http.ServerFile
+
+prefered :
+http.FileServer
+http.StripPrefix("/resources", http.FileServer(http.Dir("./assets")))
+
+use StripPrefix to serve only files must be .
+it will strip off 'route' from req like : src="/resources/fsdfsd.jpg"
+
+
+create static file server
+log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("."))))
+it only work and dont show your code when we have index.html
+we force to have it .
+
+
+
+deploy to google cloud. 
+
+we have 3 level server 
+infrastructure as service 
+platform as service == google App Engine 
+software as service
+
+
+
+creating state on the web.
+
+
+state : 
+
+enctype 
+
+session :
+
+uuid
