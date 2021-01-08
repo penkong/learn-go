@@ -98,18 +98,52 @@ the first value is the default value .
 
 
 
+you can make proto file with multi message (types) 
+
+
+netsting types :
+
+
+import 
+import "address from root of project";
+
+
+making packages
+
+
+Find the correct protocol buffers version based on your Linux Distro: https://github.com/google/protobuf/releases
+
+Example with x64:
+
+# Make sure you grab the latest version
+curl -OL https://github.com/google/protobuf/releases/download/v3.5.1/protoc-3.5.1-linux-x86_64.zip
+# Unzip
+unzip protoc-3.5.1-linux-x86_64.zip -d protoc3
+# Move protoc to /usr/local/bin/
+sudo mv protoc3/bin/* /usr/local/bin/
+# Move protoc3/include to /usr/local/include/
+sudo mv protoc3/include/* /usr/local/include/
+# Optional: change owner
+sudo chown [user] /usr/local/bin/protoc
+sudo chown -R [user] /usr/local/include/google
 
 
 
+on  folder of protos 
+make folder for receive compiled code 
+command
+protoc -I=<name of proto folder> --js_out=OUT_DIR=python proto/*.proto
 
 
 
+- Golang packages:
+
+go get -u github.com/golang/protobuf/protoc-gen-go
+go get -u github.com/golang/protobuf/proto
 
 
 
+for go lang 
 
-
-
-
-
-
+make src 
+put proto file there
