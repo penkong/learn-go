@@ -1,0 +1,115 @@
+csv , sql , json (heavy)
+
+now buffers 
+
+it has syntax like 
+
+message sdfdsf {
+  int32 id = 1;
+  string fsdfsdf = 2;
+  bool fdsfsdf = 3;
+}
+
+.proto text file .
+
+advantage : 
+typed , 
+data compressed 
+schema is need 
+document 
+many langauge
+schema can evolve 
+100x faster xml
+
+
+
+
+how use ?? 
+
+.proto 
+auto generation of code 
+by your lang 
+create objects 
+then 
+serialize , 
+deserialize ,
+
+
+big projects :
+etcd , 
+some dbs 
+
+
+we use proto3 
+
+
+
+=======================================
+syntax proto3
+message : is what we exchange in code
+  field  we have type 
+  field name 
+  field tag.
+
+---
+
+scalar types :
+float 32bits 
+double 64 bits 
+integer int32
+
+boolean : bool 
+string : utf-8 or 7bit ascii 
+
+bytes : represent any sequence of data .
+like image
+
+for big always use _
+
+
+
+
+tags : number at end 1 to 2^29
+19000-19999 reserved
+
+
+tags 1 to 15 use 1 byte space
+
+
+tags 16 to 2047 use 2 byte
+
+reserved tags
+
+
+
+repeated fields : array or list  !== singular
+
+
+comments : it is good practice , 
+
+
+
+default value : always will be by proto. 
+
+
+
+enum : if you know all the value , 
+the first value is the default value .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

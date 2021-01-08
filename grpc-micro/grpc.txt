@@ -1,0 +1,40 @@
+grpc with go
+
+grpc allow to define req , res for rpc 
+and handles rest for you .
+
+built on http2
+
+
+in client looks calling a function 
+corba had rpc before.
+
+
+
+grpc stub >>>>> grpc server
+client
+proto req _____ proto res 
+
+
+
+define protocol buffers 
+rest grpc will generate for you .
+
+.proto works with 12 lang
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
