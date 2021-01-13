@@ -147,3 +147,42 @@ for go lang
 
 make src 
 put proto file there
+
+define name of package 
+
+after that 
+define 
+option go_package = 'become name of go file'
+
+
+make file generate.sh 
+put commands there 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -134,6 +134,5 @@ func doSimple() *simplepb.SimpleMessage {
 	fmt.Println(sm)
 
 	fmt.Println("The ID is:", sm.GetId())
-
 	return &sm
 }
