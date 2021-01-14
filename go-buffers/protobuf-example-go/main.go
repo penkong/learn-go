@@ -4,10 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-
 	"github.com/simplesteph/protobuf-example-go/src/complex"
 	"github.com/simplesteph/protobuf-example-go/src/enum_example"
-
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"github.com/simplesteph/protobuf-example-go/src/simple"
@@ -88,7 +86,7 @@ func readAndWriteDemo(sm proto.Message) {
 	fmt.Println("Read the content:", sm2)
 }
 
-func writeToFile(fname string, pb proto.Message) error {
+func writeToFile(fname string, pb proto.Message) error { 
 	out, err := proto.Marshal(pb)
 	if err != nil {
 		log.Fatalln("Can't serialise to bytes", err)

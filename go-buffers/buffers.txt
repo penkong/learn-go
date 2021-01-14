@@ -158,6 +158,87 @@ option go_package = 'become name of go file'
 make file generate.sh 
 put commands there 
 
+---
+
+Protobuf Data Evolution :
+
+
+without break application 
+
+Forward compatible change :
+write new data .proto ----> it go through internet ---> read data from old .proto
+
+
+
+Backward compatible chnage :
+write old data .proto ---> it go through internet ---> read data with new .proto
+
+
+
+
+Forward + Backward = full compatibility .
+
+
+for it work 
+rules : 
+1.dont change the numeric tags for any existing fields
+2.can add new fields , old code just ignore 
+3.if old / new code reads unknown daa , the default will take place .
+4.field can remove if tag number not use again add prefix OBSOLETE_
+5.for data type change read docs.
+
+
+can change field name 
+
+
+remove field but always reserve tag and name 
+reserved 2 
+reserved "first_name"
+or 
+OBSOLETE_field_name : not good way
+
+
+
+reserve keyword 
+
+
+
+defaults :
+make sure default value does not have any meaning for your business.
+
+
+
+enum evolve :
+like before.
+
+
+
+
+
+
+
+
+advanced :
+
+
+use sint64 or 32 for storing negative values 
+use a technique called zigzag
+
+
+fixed32 or 64 use 4 or 8 bytes constantly , use for huge values
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
