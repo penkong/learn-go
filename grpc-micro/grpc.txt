@@ -1,5 +1,7 @@
 grpc with go
 
+grpc is free , open source , part of CNFC like docker k8s
+
 grpc allow to define req , res for rpc 
 and handles rest for you .
 
@@ -7,12 +9,16 @@ built on http2
 
 
 in client looks calling a function 
+
+on client : server.createSth()
+on server : createSth()
+
 corba had rpc before.
 
 
 
 grpc stub >>>>> grpc server
-client
+client ruby          c++ service
 proto req _____ proto res 
 
 
@@ -24,17 +30,49 @@ rest grpc will generate for you .
 
 
 
+----------
+
+Theory :
+
+grpc use protocol buffers
+parsing JSON is cpu intense
+grpc.io
+
+stub == client
+
+what is http2
+
+http.1.1 dont compress headers , tcp , has not server push , req,res 
+huge packaet size , latency 
+is text, plainText
+
+http2 it was spdy , multi pluxing , client and server push message in parallel
+over same tcp , server push . header compression , 
+is binary , it is secured by default by ssl .
 
 
 
+4 types of api in grpc :
+unary : classic req , res http
+
+server streaming : client req, server res , res , res http2 
+
+client streaming : client req , req, req , server res 
+
+bi directional streaming : server streaming + client streaming
 
 
+in message service 
 
 
+this is bio
+client side stream ------------- server side stream
+rpc sth(stream sthGreet) returns (stream sthGreet2) {}
 
 
+grpcs are async 
+can serve million requests in parallel
 
-
-
+grpc clients can perform client side load balancing
 
 
