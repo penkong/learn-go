@@ -16,29 +16,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-func main() {
-
-	fmt.Println("Calculator Client")
-	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
-	if err != nil {
-		log.Fatalf("could not connect: %v", err)
-	}
-	defer cc.Close()
-
-	c := calculatorpb.NewCalculatorServiceClient(cc)
-	// fmt.Printf("Created client: %f", c)
-
-	// doUnary(c)
-
-	// doServerStreaming(c)
-
-	// doClientStreaming(c)
-
-	// doBiDiStreaming(c)
-
-	doErrorUnary(c)
-}
-
 func doUnary(c calculatorpb.CalculatorServiceClient) {
 	fmt.Println("Starting to do a Sum Unary RPC...")
 	req := &calculatorpb.SumRequest{
@@ -169,4 +146,22 @@ func doErrorCall(c calculatorpb.CalculatorServiceClient, n int32) {
 		}
 	}
 	fmt.Printf("Result of square root of %v: %v\n", n, res.GetNumberRoot())
+}
+
+func main() {
+
+	fmt.Println("Calculator Client")
+	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+	if err != nil {
+		log.Fatalf("could not connect: %v", err)
+	}
+	defer cc.Close()
+
+	c := calculatorpb.NewCalculatorServiceClient(cc)
+
+	// doUnary(c)
+	// doServerStreaming(c)
+	// doClientStreaming(c)
+	// doBiDiStreaming(c)
+	doErrorUnary(c) 
 }

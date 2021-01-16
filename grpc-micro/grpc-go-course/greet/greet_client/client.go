@@ -16,52 +16,23 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func main() {
-
-	fmt.Println("Hello I'm a client")
-
-	tls := false
-	opts := grpc.WithInsecure()
-	if tls {
-		certFile := "ssl/ca.crt" // Certificate Authority Trust certificate
-		creds, sslErr := credentials.NewClientTLSFromFile(certFile, "")
-		if sslErr != nil {
-			log.Fatalf("Error while loading CA trust certificate: %v", sslErr)
-			return
-		}
-		opts = grpc.WithTransportCredentials(creds)
-	}
-
-	cc, err := grpc.Dial("localhost:50051", opts)
-	if err != nil {
-		log.Fatalf("could not connect: %v", err)
-	}
-	defer cc.Close()
-
-	c := greetpb.NewGreetServiceClient(cc)
-	// fmt.Printf("Created client: %f", c)
-
-	doUnary(c)
-	// doServerStreaming(c)
-	// doClientStreaming(c)
-	// doBiDiStreaming(c)
-
-	// doUnaryWithDeadline(c, 5*time.Second) // should complete
-	// doUnaryWithDeadline(c, 1*time.Second) // should timeout
-}
-
 func doUnary(c greetpb.GreetServiceClient) {
 	fmt.Println("Starting to do a Unary RPC...")
+
+	// this is in argument in interface
 	req := &greetpb.GreetRequest{
 		Greeting: &greetpb.Greeting{
-			FirstName: "Stephane",
-			LastName:  "Maarek",
+			FirstName: "mazdak",
+			LastName:  "nazemi",
 		},
 	}
+
+	// issue to server greet
 	res, err := c.Greet(context.Background(), req)
 	if err != nil {
 		log.Fatalf("error while calling Greet RPC: %v", err)
 	}
+
 	log.Printf("Response from Greet: %v", res.Result)
 }
 
@@ -70,8 +41,8 @@ func doServerStreaming(c greetpb.GreetServiceClient) {
 
 	req := &greetpb.GreetManyTimesRequest{
 		Greeting: &greetpb.Greeting{
-			FirstName: "Stephane",
-			LastName:  "Maarek",
+			FirstName: "mazdak",
+			LastName:  "naz",
 		},
 	}
 
@@ -140,7 +111,7 @@ func doClientStreaming(c greetpb.GreetServiceClient) {
 	if err != nil {
 		log.Fatalf("error while receiving response from LongGreet: %v", err)
 	}
-	fmt.Printf("LongGreet Response: %v\n", res)
+	fmt.Printf("LongGreet Response: %v\n", res.Result)
 
 }
 
@@ -189,7 +160,7 @@ func doBiDiStreaming(c greetpb.GreetServiceClient) {
 		for _, req := range requests {
 			fmt.Printf("Sending message: %v\n", req)
 			stream.Send(req)
-			time.Sleep(1000 * time.Millisecond)
+			// time.Sleep(1000 * time.Millisecond)
 		}
 		stream.CloseSend()
 	}()
@@ -218,8 +189,8 @@ func doUnaryWithDeadline(c greetpb.GreetServiceClient, timeout time.Duration) {
 	fmt.Println("Starting to do a UnaryWithDeadline RPC...")
 	req := &greetpb.GreetWithDeadlineRequest{
 		Greeting: &greetpb.Greeting{
-			FirstName: "Stephane",
-			LastName:  "Maarek",
+			FirstName: "mk",
+			LastName:  "purian",
 		},
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
@@ -241,4 +212,43 @@ func doUnaryWithDeadline(c greetpb.GreetServiceClient, timeout time.Duration) {
 		return
 	}
 	log.Printf("Response from GreetWithDeadline: %v", res.Result)
+}
+
+func main() {
+
+	fmt.Println("Client Activated!")
+
+	tls := true
+
+	// use if we dont have ssl
+	opts := grpc.WithInsecure()
+	if tls {
+		certFile := "ssl/ca.crt" // Certificate Authority Trust certificate
+		creds, sslErr := credentials.NewClientTLSFromFile(certFile, "")
+		if sslErr != nil {
+			log.Fatalf("Error while loading CA trust certificate: %v", sslErr)
+			return
+		}
+		opts = grpc.WithTransportCredentials(creds)
+	}
+
+	// create connection to server
+	cc, err := grpc.Dial("localhost:50051", opts)
+	if err != nil {
+		log.Fatalf("could not connect: %v", err)
+	}
+	defer cc.Close()
+
+	// now create client
+	c := greetpb.NewGreetServiceClient(cc)
+
+	// fmt.Printf("Created client: %f", c)
+
+	// doUnary(c)
+	// doServerStreaming(c)
+	// doClientStreaming(c)
+	doBiDiStreaming(c)
+
+	// doUnaryWithDeadline(c, 5*time.Second) // should complete
+	// doUnaryWithDeadline(c, 1*time.Second) // should timeout
 }

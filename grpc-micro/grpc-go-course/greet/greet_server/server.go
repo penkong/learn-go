@@ -39,7 +39,7 @@ func (*server) GreetManyTimes(req *greetpb.GreetManyTimesRequest, stream greetpb
 			Result: result,
 		}
 		stream.Send(res)
-		time.Sleep(1000 * time.Millisecond)
+		time.Sleep(500 * time.Millisecond)
 	}
 	return nil
 }
@@ -87,7 +87,6 @@ func (*server) GreetEveryone(stream greetpb.GreetService_GreetEveryoneServer) er
 			return sendErr
 		}
 	}
-
 }
 
 func (*server) GreetWithDeadline(ctx context.Context, req *greetpb.GreetWithDeadlineRequest) (*greetpb.GreetWithDeadlineResponse, error) {
@@ -109,15 +108,17 @@ func (*server) GreetWithDeadline(ctx context.Context, req *greetpb.GreetWithDead
 }
 
 func main() {
-	fmt.Println("Hello world")
+	fmt.Println("Server Active!")
 
+	// make listener port binding
 	lis, err := net.Listen("tcp", "0.0.0.0:50051")
 	if err != nil {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 
+	// define options for grpc server
 	opts := []grpc.ServerOption{}
-	tls := false
+	tls := true
 	if tls {
 		certFile := "ssl/server.crt"
 		keyFile := "ssl/server.pem"
@@ -129,10 +130,14 @@ func main() {
 		opts = append(opts, grpc.Creds(creds))
 	}
 
+	// make grpc server
 	s := grpc.NewServer(opts...)
+
+	// with server and type struct server
 	greetpb.RegisterGreetServiceServer(s, &server{})
 
+	// start listen on server
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
-	}
+	}   
 }
