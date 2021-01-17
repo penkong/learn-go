@@ -304,6 +304,90 @@ insturcution.sh file
 grpc reflection and cli :
 
 
+what apis do i have??
+that is reflection
+
+to understand which endpoints are available from server 
+allow cli talk to server without .proto file 
+
+implement on server 
+use evans cli to see on client side .
+
+evans -p 50051 -r
+
+show package 
+show service 
+show messge
+
+desc <name of message>
+
+show pacakge 
+pacakge default
+
+show service
+service <your serveric>
+
+
+// rpc call 
+call <name of rpc for ex Sum>
+
+------------------------
+
+
+crud with mongo db 
+
+
+
+register server simple 
+
+for shutdown server we need 
+shutdown hook server 
+
+
+go func() {
+
+		fmt.Println("Starting Server...")
+
+		if err := s.Serve(lis); err != nil {
+			log.Fatalf("failed to serve: %v", err)
+		}
+
+	}()
+
+	// Wait for Control C to exit
+	ch := make(chan os.Signal, 1)
+
+	signal.Notify(ch, os.Interrupt)
+
+	// Block until a signal is received
+	<-ch
+
+
+do mongo with docker 
+
+
+
+after this setup mongo on code 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
