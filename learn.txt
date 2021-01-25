@@ -409,7 +409,7 @@ in memory
 
 go2 
 make workspace 
-with 3 dir`
+with 3 dir
 bin pkg src
 
 
