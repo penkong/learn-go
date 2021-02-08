@@ -1,0 +1,25 @@
+git tag v0.0.1
+git commit
+git push --tags
+git push 
+
+---
+
+3 layer 
+access layer - http , grpc and ...
+buiness logic - services 
+action layer - how happens .
+
+multitier architecture , three tier arch
+
+
+---
+
+mk 
+first create generator 
+new sth 
+make one instance of struct with your fields.
+
+---
+
+curl -v(verbose) -XPOST -d '{body}' address
