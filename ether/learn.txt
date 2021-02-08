@@ -1,0 +1,59 @@
+white paper bitcoin
+white paper of etherium
+
+etherium ultimate smart contract and decntralize application platform
+
+programmatic control over transactions
+
+decntralized autonomous corporations (DAC)
+
+
+what etherium is ???
+
+
+network of computers(node) to transfer money and store data .
+
+there are many etherium networks
+
+each node is a machine run a etherium client .
+
+each node can conatian a copy of blockchain
+
+a blockchain is database that stores a record of every 
+transactions that has ever happened .
+
+to connect to network :
+2 groups of info 
+
+for developers : web3.js
+it is window to etherium network
+
+for consumers : Metamask(extension) , Mist browser .
+
+rhythm average44 admit mesh fatal bicycle ice medal flag erase device shy
+
+add Metamask
+use rinkbey network
+
+creation of account on Metamask :
+account address 
+public key 
+private key
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
