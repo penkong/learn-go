@@ -41,14 +41,28 @@ public key
 private key
 
 
+request line 
+header line
+blank line
+
+query string get us state of resource .
+& %26 
+= %3D
+% %25  %(hex)
+encodeURIComponent() will do this for you.
+
+method == action by server 
+resource path == a thing server manage 
+
+nc === netcat
 
 
+response 
+portocol version , status code , status msg
 
 
-
-
-
-
+export PATH=$PATH:$HOME/bin
+Environment variables have a scope as well
 
 
 
