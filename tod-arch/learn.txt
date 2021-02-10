@@ -23,3 +23,10 @@ make one instance of struct with your fields.
 ---
 
 curl -v(verbose) -XPOST -d '{body}' address
+
+
+----
+
+software architecture :
+
+
