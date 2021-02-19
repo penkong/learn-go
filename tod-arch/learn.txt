@@ -27,5 +27,24 @@ curl -v(verbose) -XPOST -d '{body}' address
 ----
 
 software architecture :
+check part 8
+
+----
+
+Context : settings for an event to help it fully understood and asssessed .
+
+godoc.org/Context
+
+blog.golang.org/Context
+
+ardanlabs.com Context package semantics in go 
+
+
+
+
+
+
+
+
 
 
