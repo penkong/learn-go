@@ -9,21 +9,21 @@ Here is [a good third-party ServeMux](https://godoc.org/github.com/julienschmidt
 ## Match method & path
 
 The router matches incoming requests by the request method and the path.
- 
- ``` Go
- func main() {
-     router := httprouter.New()
-     router.GET("/apply", apply)
-     router.POST("/apply", applyProcess) 
-     http.ListenAndServe(":8080", router)
- }
- ```
+
+```Go
+func main() {
+    router := httprouter.New()
+    router.GET("/apply", apply)
+    router.POST("/apply", applyProcess)
+    http.ListenAndServe(":8080", router)
+}
+```
 
 ## Named path parameters
 
 The registered path, against which the router matches incoming requests, can also contain parameters. Parameters are dynamic path segments. They match anything until the next '/' or the path end.
 
-``` Go
+```Go
 func main() {
     router := httprouter.New()
     router.GET("/blog/:category/:article", blog)
@@ -43,7 +43,7 @@ Requests:
 
 Catch-all parameters match anything until the path end, including the directory index (the '/' before the catch-all). Since they match anything until the end, catch-all parameters must always be the final path element.
 
-``` Go
+```Go
 func main() {
     router := httprouter.New()
     router.GET("/files/*filepath", loadFile)
@@ -63,17 +63,16 @@ Requests:
 
 The value of parameters is saved as a []Param
 
-
-``` Go
+```Go
 type Param struct {
     Key   string
     Value string
 }
 ```
 
-The slice is passed to the Handle func as a third parameter. 
+The slice is passed to the Handle func as a third parameter.
 
-``` Go
+```Go
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
     fmt.Fprint(w, "Welcome!\n")
 }
@@ -93,7 +92,7 @@ func main() {
 
 Retrieve the value of a parameter:
 
-``` Go
+```Go
 user := ps.ByName("user") // defined by :user or *user
 
 ```
@@ -101,4 +100,3 @@ user := ps.ByName("user") // defined by :user or *user
 ## Performance
 
 Julien Schmidt's router is [nicely performant](https://github.com/julienschmidt/go-http-routing-benchmark#static-routes)
-
