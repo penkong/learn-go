@@ -1297,7 +1297,7 @@ GOOS=linux GOARCH=amd64 go build -o <name you want>
 
 
 
-
+Read Docker file reference on docker site .  
 
 
 
